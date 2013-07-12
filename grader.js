@@ -69,7 +69,7 @@ if(require.main == module) {
         .option('-u, --url <url>', 'Url to index.html')
         .parse(process.argv);
     if (program.url) {
-      console.log('procesing url: \'' + program.url + '\'');
+      /* console.log('procesing url: \'' + program.url + '\''); */
       rest.get(program.url).on('complete', function(result) {
         if (result instanceof Error) {
           console.log('Error: ' + result.message);
@@ -82,7 +82,7 @@ if(require.main == module) {
       });
     }
     else if (program.file) {
-      console.log('processing file: \'' + program.file + '\'');
+      /* console.log('processing file: \'' + program.file + '\''); */
       var html = fs.readFileSync(program.file);
       var checkJson = checkHtmlFile(html, program.checks);
       var outJson = JSON.stringify(checkJson, null, 4);
